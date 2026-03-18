@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nos services — NovaTech</title>
+  <meta name="description" content="Design, développement web, SEO et maintenance : découvrez tous les services de NovaTech." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Nos services — NovaTech" />
+  <meta property="og:description" content="Design, développement web, SEO et maintenance." />
+  <meta property="og:image" content="https://placehold.co/1200x630/0D0D0D/FF4D00?text=Services+NovaTech" />
+  <meta property="og:url" content="https://novatech.fr/services.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero { background: var(--ink); color: var(--white); padding: 5rem 0 3rem; }
+    .page-hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); color: var(--white); }
+    .page-hero p { color: rgba(255,255,255,0.55); margin-top: 1rem; max-width: 550px; font-size: 1.05rem; }
+
+    /* ── DETAILS/SUMMARY ── */
+    .services-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 3rem; }
+
+    details {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    details[open] { border-color: var(--accent); }
+
+    summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 1.75rem;
+      cursor: pointer;
+      background: var(--white);
+      list-style: none;
+      user-select: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+    summary::marker { display: none; }
+
+    .summary-left { display: flex; align-items: center; gap: 1rem; }
+    .summary-icon { font-size: 1.5rem; }
+    .summary-title { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; }
+    .summary-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      background: rgba(255,77,0,0.1);
+      color: var(--accent);
+      margin-left: 0.5rem;
+    }
+
+    .summary-chevron {
+      font-size: 1rem;
+      color: var(--muted);
+      transition: transform 0.25s;
+    }
+
+    details[open] .summary-chevron { transform: rotate(180deg); }
+
+    .details-body {
+      padding: 0 1.75rem 1.75rem;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .details-body p { font-size: 0.9rem; margin-bottom: 0.5rem; }
+
+    .details-body ul {
+      margin-top: 0.75rem;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .details-body ul li {
+      font-size: 0.875rem;
+      color: var(--ink);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .details-body ul li::before {
+      content: "→";
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .details-meta h4 { margin-bottom: 0.75rem; }
+
+    /* ── PRICING TABLE ── */
+    .pricing-section { background: var(--surface); }
+
+    .pricing-table-wrap {
+      overflow-x: auto;
+      margin-top: 3rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    table.pricing {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      min-width: 680px;
+    }
+
+    table.pricing thead { background: var(--ink); color: var(--white); }
+
+    table.pricing thead th {
+      padding: 1.25rem 1.5rem;
+      text-align: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    table.pricing thead th:first-child { text-align: left; }
+
+    table.pricing thead th.featured-col { background: var(--accent); }
+
+    table.pricing tbody tr { border-bottom: 1px solid var(--border); }
+    table.pricing tbody tr:last-child { border-bottom: none; }
+
+    table.pricing tbody tr.section-row { background: var(--surface); }
+    table.pricing tbody tr.section-row td {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    table.pricing tbody td {
+      padding: 1rem 1.5rem;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    table.pricing tbody td:first-child { text-align: left; font-weight: 500; }
+
+    table.pricing tbody td.featured-col { background: rgba(255,77,0,0.04); }
+
+    .check { color: var(--accent); font-weight: 700; }
+    .cross { color: #ccc; }
+
+    .price-row td {
+      padding: 1.5rem !important;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem !important;
+    }
+
+    .price-row td span { font-size: 0.75rem; font-weight: 400; color: var(--muted); display: block; }
+
+    .badge-popular {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">Nova<span>Tech</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="about.html">Équipe</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="gallery.html">Galerie</a></li>
+    <li><a href="contact.html" class="nav-cta">Nous contacter</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="section-label">Ce que nous faisons</p>
+    <h1>Nos services</h1>
+    <p>Du concept à la mise en ligne, on vous accompagne à chaque étape de votre projet digital.</p>
+  </div>
+</section>
+
+<!-- ── SERVICES DETAILS ── -->
+<section class="section">
+  <div class="container">
+    <p class="section-label">Explorer</p>
+    <h2>Tout ce que nous proposons</h2>
+
+    <div class="services-list">
+
+      <details id="design" open>
+        <summary>
+          <div class="summary-left">
+            <span class="summary-icon">🎨</span>
+            <div>
+              <span class="summary-title">Design UI/UX</span>
+              <span class="summary-tag">Populaire</span>
+            </div>
+          </div>
+          <span class="summary-chevron">▾</span>
+        </summary>
+        <div class="details-body">
+          <div>
+            <p>Nous concevons des interfaces qui convertissent et des expériences qui fidélisent. Du wireframe au prototype interactif, chaque décision design est justifiée par la donnée.</p>
+            <ul>
+              <li>Audit UX de votre interface existante</li>
+              <li>Conception de wireframes et maquettes</li>
+              <li>Prototypage interactif (Figma)</li>
+              <li>Design system & bibliothèque de composants</li>
+              <li>Tests utilisateurs et itérations</li>
+            </ul>
+          </div>
+          <div class="details-meta">
+            <h4>Livrables typiques</h4>
+            <ul>
+              <li>Rapport d'audit UX (PDF)</li>
+              <li>Fichier Figma complet</li>
+              <li>Guide de style interactif</li>
+              <li>Documentation des composants</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details id="dev">
+        <summary>
+          <div class="summary-left">
+            <span class="summary-icon">💻</span>
+            <div><span class="summary-title">Développement Web</span></div>
+          </div>
+          <span class="summary-chevron">▾</span>
+        </summary>
+        <div class="details-body">
+          <div>
+            <p>Sites vitrines, e-commerce, applications web : on maîtrise l'ensemble de la chaîne technique, du HTML sémantique aux architectures full-stack modernes.</p>
+            <ul>
+              <li>Sites vitrines HTML/CSS/JS</li>
+              <li>Applications React / Next.js</li>
+              <li>Intégrations CMS (Wordpress, Strapi)</li>
+              <li>APIs REST et GraphQL</li>
+              <li>Optimisation performance (Core Web Vitals)</li>
+            </ul>
+          </div>
+          <div class="details-meta">
+            <h4>Stack technique</h4>
+            <ul>
+              <li>HTML5, CSS3, JavaScript ES2024</li>
+              <li>React, Next.js, Vue.js</li>
+              <li>Node.js, PHP, Python</li>
+              <li>PostgreSQL, MongoDB</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details id="strategie">
+        <summary>
+          <div class="summary-left">
+            <span class="summary-icon">📈</span>
+            <div><span class="summary-title">SEO & Stratégie Digitale</span></div>
+          </div>
+          <span class="summary-chevron">▾</span>
+        </summary>
+        <div class="details-body">
+          <div>
+            <p>Être visible sur Google ne s'improvise pas. On construit des stratégies SEO durables basées sur l'analyse technique, la sémantique et le netlinking.</p>
+            <ul>
+              <li>Audit SEO complet (technique + contenu)</li>
+              <li>Stratégie de mots-clés</li>
+              <li>Optimisation on-page et balises meta</li>
+              <li>Suivi des positions et reporting mensuel</li>
+              <li>Mise en place Google Analytics 4 / Search Console</li>
+            </ul>
+          </div>
+          <div class="details-meta">
+            <h4>Résultats attendus</h4>
+            <ul>
+              <li>+50% de trafic organique en 6 mois</li>
+              <li>Top 3 sur mots-clés cibles</li>
+              <li>Dashboard de suivi en temps réel</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details id="maintenance">
+        <summary>
+          <div class="summary-left">
+            <span class="summary-icon">🔧</span>
+            <div><span class="summary-title">Maintenance & Support</span></div>
+          </div>
+          <span class="summary-chevron">▾</span>
+        </summary>
+        <div class="details-body">
+          <div>
+            <p>Votre site est un actif vivant. Nos contrats de maintenance garantissent sa disponibilité, sa sécurité et ses évolutions continues.</p>
+            <ul>
+              <li>Mises à jour CMS et dépendances</li>
+              <li>Sauvegardes automatiques quotidiennes</li>
+              <li>Monitoring de disponibilité 24/7</li>
+              <li>Corrections de bugs sous 24h</li>
+              <li>Évolutions mineures incluses</li>
+            </ul>
+          </div>
+          <div class="details-meta">
+            <h4>SLA inclus</h4>
+            <ul>
+              <li>Disponibilité garantie à 99.9%</li>
+              <li>Temps de réponse &lt; 4h (heures ouvrées)</li>
+              <li>Rapport mensuel d'activité</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── TARIFS ── -->
+<section class="section pricing-section">
+  <div class="container">
+    <p class="section-label">Transparence</p>
+    <h2>Nos tarifs</h2>
+    <div class="pricing-table-wrap">
+      <table class="pricing">
+        <thead>
+          <tr>
+            <th rowspan="2" style="text-align:left">Fonctionnalités</th>
+            <th>Starter</th>
+            <th class="featured-col">Professionnel <span class="badge-popular">⭐ Populaire</span></th>
+            <th>Enterprise</th>
+          </tr>
+          <tr class="price-row">
+            <td>990 € <span>projet one-shot</span></td>
+            <td class="featured-col">2 490 € <span>projet complet</span></td>
+            <td>Sur devis <span>solution sur mesure</span></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="section-row">
+            <td colspan="4">Design</td>
+          </tr>
+          <tr>
+            <td>Maquettes (jusqu'à 5 pages)</td>
+            <td><span class="check">✓</span></td>
+            <td class="featured-col"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Design system complet</td>
+            <td><span class="cross">—</span></td>
+            <td class="featured-col"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Prototype interactif Figma</td>
+            <td><span class="cross">—</span></td>
+            <td class="featured-col"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr class="section-row">
+            <td colspan="4">Développement</td>
+          </tr>
+          <tr>
+            <td>Site responsive (jusqu'à 5 pages)</td>
+            <td><span class="check">✓</span></td>
+            <td class="featured-col"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Intégration CMS</td>
+            <td><span class="cross">—</span></td>
+            <td class="featured-col"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Application web sur mesure</td>
+            <td><span class="cross">—</span></td>
+            <td class="featured-col"><span class="cross">—</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr class="section-row">
+            <td colspan="4">Support & SEO</td>
+          </tr>
+          <tr>
+            <td>Optimisation SEO de base</td>
+            <td><span class="check">✓</span></td>
+            <td class="featured-col"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Maintenance 3 mois incluse</td>
+            <td><span class="cross">—</span></td>
+            <td class="featured-col"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Account manager dédié</td>
+            <td><span class="cross">—</span></td>
+            <td class="featured-col"><span class="cross">—</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Nova<span>Tech</span></div>
+      <p>Agence web créative basée à Paris. On construit des expériences numériques qui font la différence depuis 2017.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="about.html">Équipe</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Galerie</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#design">Design UI/UX</a></li>
+        <li><a href="#dev">Développement</a></li>
+        <li><a href="#strategie">SEO & Analytics</a></li>
+        <li><a href="#maintenance">Maintenance</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:hello@novatech.fr" rel="noopener">hello@novatech.fr</a></li>
+        <li><a href="tel:+33140000000" rel="noopener">+33 1 40 00 00 00</a></li>
+        <li><a href="https://linkedin.com/company/novatech" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/novatech" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 NovaTech SAS. Tous droits réservés.</span>
+    <div class="footer-legal">
+      <a href="#mentions-legales" rel="noopener">Mentions légales</a>
+      <a href="#confidentialite" rel="noopener">Confidentialité</a>
+      <a href="#cookies" rel="noopener">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

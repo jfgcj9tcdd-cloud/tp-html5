@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galerie — NovaTech</title>
+  <meta name="description" content="Découvrez nos réalisations : sites web, applications et projets digitaux créés par NovaTech." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Galerie — NovaTech" />
+  <meta property="og:description" content="Nos réalisations : sites, apps et projets digitaux." />
+  <meta property="og:image" content="https://placehold.co/1200x630/0D0D0D/FF4D00?text=Galerie+NovaTech" />
+  <meta property="og:url" content="https://novatech.fr/gallery.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero { background: var(--surface); padding: 5rem 0 3rem; }
+    .page-hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
+    .page-hero p { color: var(--muted); margin-top: 1rem; max-width: 500px; }
+
+    /* ── FILTER TABS ── */
+    .filter-tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .tab-btn {
+      padding: 0.45rem 1.1rem;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      background: transparent;
+      color: var(--muted);
+      font-family: 'Outfit', sans-serif;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:hover { border-color: var(--ink); color: var(--ink); }
+    .tab-btn.active { background: var(--ink); color: var(--white); border-color: var(--ink); }
+
+    /* ── MASONRY-STYLE GRID ── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .gallery-item {
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--surface);
+      position: relative;
+      cursor: pointer;
+    }
+
+    .gallery-item.featured {
+      grid-column: span 2;
+    }
+
+    .gallery-item picture,
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    .gallery-item .img-wrap {
+      overflow: hidden;
+      height: 260px;
+    }
+
+    .gallery-item.featured .img-wrap { height: 360px; }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.25rem;
+    }
+
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    .gallery-meta h3 { color: #fff; font-size: 1rem; margin-bottom: 0.2rem; }
+    .gallery-meta h6 { color: rgba(255,255,255,0.65); text-transform: none; letter-spacing: 0; font-size: 0.8rem; }
+
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item.featured { grid-column: span 2; }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item.featured { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">Nova<span>Tech</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="about.html">Équipe</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="gallery.html" class="active">Galerie</a></li>
+    <li><a href="contact.html" class="nav-cta">Nous contacter</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="section-label">Notre portfolio</p>
+    <h1>120+ projets.<br>Des résultats concrets.</h1>
+    <p>Un aperçu de nos réalisations pour des clients de tous secteurs.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:2rem">
+  <div class="container">
+
+    <div class="filter-tabs">
+      <button class="tab-btn active">Tous</button>
+      <button class="tab-btn">Sites vitrines</button>
+      <button class="tab-btn">E-commerce</button>
+      <button class="tab-btn">Applications</button>
+      <button class="tab-btn">Design</button>
+    </div>
+
+    <div class="gallery-grid">
+
+      <!-- Item 1 — featured -->
+      <div class="gallery-item featured">
+        <div class="img-wrap">
+          <picture>
+            <source
+              media="(max-width: 480px)"
+              srcset="https://placehold.co/400x300/FF4D00/FFFFFF?text=Bloom+App 400w"
+            />
+            <source
+              media="(max-width: 768px)"
+              srcset="https://placehold.co/700x400/FF4D00/FFFFFF?text=Bloom+App 700w"
+            />
+            <img
+              src="https://placehold.co/1000x500/FF4D00/FFFFFF?text=Bloom+App"
+              srcset="
+                https://placehold.co/400x300/FF4D00/FFFFFF?text=Bloom+App 400w,
+                https://placehold.co/700x400/FF4D00/FFFFFF?text=Bloom+App 700w,
+                https://placehold.co/1000x500/FF4D00/FFFFFF?text=Bloom+App 1000w
+              "
+              sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, 66vw"
+              alt="Application Bloom App — gestion de bien-être et méditation"
+              width="1000"
+              height="500"
+            />
+          </picture>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-meta">
+            <h3>Bloom App</h3>
+            <h6>Application web · React · 2024</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="gallery-item">
+        <div class="img-wrap">
+          <picture>
+            <source
+              srcset="
+                https://placehold.co/300x260/0052FF/FFFFFF?text=GreenBox 300w,
+                https://placehold.co/600x520/0052FF/FFFFFF?text=GreenBox 600w
+              "
+              sizes="(max-width: 768px) 50vw, 33vw"
+            />
+            <img
+              src="https://placehold.co/600x520/0052FF/FFFFFF?text=GreenBox"
+              alt="Site vitrine GreenBox — e-commerce produits biologiques"
+              width="600"
+              height="520"
+            />
+          </picture>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-meta">
+            <h3>GreenBox</h3>
+            <h6>E-commerce · 2024</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="gallery-item">
+        <div class="img-wrap">
+          <picture>
+            <source
+              srcset="
+                https://placehold.co/300x260/1A1A1A/FF4D00?text=Studio+Bravo 300w,
+                https://placehold.co/600x520/1A1A1A/FF4D00?text=Studio+Bravo 600w
+              "
+              sizes="(max-width: 768px) 50vw, 33vw"
+            />
+            <img
+              src="https://placehold.co/600x520/1A1A1A/FF4D00?text=Studio+Bravo"
+              alt="Portfolio Studio Bravo — agence de communication"
+              width="600"
+              height="520"
+            />
+          </picture>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-meta">
+            <h3>Studio Bravo</h3>
+            <h6>Portfolio · 2023</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="gallery-item">
+        <div class="img-wrap">
+          <picture>
+            <source
+              srcset="
+                https://placehold.co/300x260/4CAF50/FFFFFF?text=EcoTrack 300w,
+                https://placehold.co/600x520/4CAF50/FFFFFF?text=EcoTrack 600w
+              "
+              sizes="(max-width: 768px) 50vw, 33vw"
+            />
+            <img
+              src="https://placehold.co/600x520/4CAF50/FFFFFF?text=EcoTrack"
+              alt="Dashboard EcoTrack — suivi d'empreinte carbone"
+              width="600"
+              height="520"
+            />
+          </picture>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-meta">
+            <h3>EcoTrack</h3>
+            <h6>Dashboard SaaS · 2023</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 5 — featured -->
+      <div class="gallery-item featured">
+        <div class="img-wrap">
+          <picture>
+            <source
+              media="(max-width: 480px)"
+              srcset="https://placehold.co/400x300/C8A96E/FFFFFF?text=LeBon+Chocolatier 400w"
+            />
+            <source
+              media="(max-width: 768px)"
+              srcset="https://placehold.co/700x400/C8A96E/FFFFFF?text=LeBon+Chocolatier 700w"
+            />
+            <img
+              src="https://placehold.co/1000x500/C8A96E/FFFFFF?text=LeBon+Chocolatier"
+              srcset="
+                https://placehold.co/400x300/C8A96E/FFFFFF?text=LeBon+Chocolatier 400w,
+                https://placehold.co/700x400/C8A96E/FFFFFF?text=LeBon+Chocolatier 700w,
+                https://placehold.co/1000x500/C8A96E/FFFFFF?text=LeBon+Chocolatier 1000w
+              "
+              sizes="(max-width: 480px) 100vw, (max-width: 768px) 100vw, 66vw"
+              alt="Boutique en ligne Le Bon Chocolatier — chocolaterie artisanale"
+              width="1000"
+              height="500"
+            />
+          </picture>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-meta">
+            <h3>Le Bon Chocolatier</h3>
+            <h6>E-commerce · Shopify · 2023</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="gallery-item">
+        <div class="img-wrap">
+          <picture>
+            <source
+              srcset="
+                https://placehold.co/300x260/9C27B0/FFFFFF?text=MediConnect 300w,
+                https://placehold.co/600x520/9C27B0/FFFFFF?text=MediConnect 600w
+              "
+              sizes="(max-width: 768px) 50vw, 33vw"
+            />
+            <img
+              src="https://placehold.co/600x520/9C27B0/FFFFFF?text=MediConnect"
+              alt="Plateforme MediConnect — prise de rendez-vous médical en ligne"
+              width="600"
+              height="520"
+            />
+          </picture>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-meta">
+            <h3>MediConnect</h3>
+            <h6>App santé · 2022</h6>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Nova<span>Tech</span></div>
+      <p>Agence web créative basée à Paris. On construit des expériences numériques qui font la différence depuis 2017.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="about.html">Équipe</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Galerie</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html#design">Design UI/UX</a></li>
+        <li><a href="services.html#dev">Développement</a></li>
+        <li><a href="services.html#strategie">SEO & Analytics</a></li>
+        <li><a href="services.html#maintenance">Maintenance</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:hello@novatech.fr" rel="noopener">hello@novatech.fr</a></li>
+        <li><a href="tel:+33140000000" rel="noopener">+33 1 40 00 00 00</a></li>
+        <li><a href="https://linkedin.com/company/novatech" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/novatech" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 NovaTech SAS. Tous droits réservés.</span>
+    <div class="footer-legal">
+      <a href="#mentions-legales" rel="noopener">Mentions légales</a>
+      <a href="#confidentialite" rel="noopener">Confidentialité</a>
+      <a href="#cookies" rel="noopener">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — NovaTech</title>
+  <meta name="description" content="Contactez NovaTech pour démarrer votre projet web. Paris — hello@novatech.fr" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contact — NovaTech" />
+  <meta property="og:description" content="Parlons de votre projet digital." />
+  <meta property="og:image" content="https://placehold.co/1200x630/FF4D00/FFFFFF?text=Contact+NovaTech" />
+  <meta property="og:url" content="https://novatech.fr/contact.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-hero { background: var(--ink); color: var(--white); padding: 5rem 0 3rem; }
+    .page-hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); color: var(--white); }
+    .page-hero p { color: rgba(255,255,255,0.55); margin-top: 1rem; max-width: 500px; font-size: 1.05rem; }
+
+    /* ── CONTACT LAYOUT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    /* ── INFO SIDEBAR ── */
+    .contact-info { display: flex; flex-direction: column; gap: 2rem; }
+
+    .info-block h4 { font-weight: 500; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+    .info-block p { font-size: 0.95rem; color: var(--ink); font-weight: 400; }
+    .info-block a { color: var(--ink); transition: color 0.2s; }
+    .info-block a:hover { color: var(--accent); }
+
+    .social-icons { display: flex; gap: 0.75rem; margin-top: 0.75rem; }
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .social-icons a:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── FORM ── */
+    .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .field { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    label .req { color: var(--accent); }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      background: var(--white);
+      border: 1px solid var(--border);
+      color: var(--ink);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.7rem 1rem;
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(255,77,0,0.12);
+    }
+
+    textarea { resize: vertical; min-height: 130px; }
+
+    select { cursor: pointer; }
+
+    .checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+      cursor: pointer;
+      line-height: 1.5;
+    }
+
+    input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--accent);
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent);
+    }
+
+    .range-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .budget-display {
+      font-size: 1.1rem;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 0.25rem;
+    }
+
+    button[type="submit"] {
+      padding: 1rem 2rem;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      align-self: flex-start;
+    }
+
+    button[type="submit"]:hover { background: #e04400; }
+    button[type="submit"]:active { transform: scale(0.98); }
+
+    /* ── MAP ── */
+    .map-section { background: var(--surface); padding: 4rem 0; }
+
+    .map-wrap {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    .map-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 400px;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">Nova<span>Tech</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="about.html">Équipe</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="gallery.html">Galerie</a></li>
+    <li><a href="contact.html" class="nav-cta active">Nous contacter</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="section-label">Parlons-nous</p>
+    <h1>Votre projet<br>mérite mieux.</h1>
+    <p>Décrivez-nous votre projet. On vous répond sous 24h.</p>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- INFO -->
+      <div class="contact-info">
+        <h2 style="font-size:1.5rem">Restons en contact</h2>
+
+        <div class="info-block">
+          <h4>Adresse</h4>
+          <p>42 rue du Faubourg Saint-Antoine<br>75012 Paris, France</p>
+        </div>
+
+        <div class="info-block">
+          <h4>Email</h4>
+          <p><a href="mailto:hello@novatech.fr" rel="noopener">hello@novatech.fr</a></p>
+        </div>
+
+        <div class="info-block">
+          <h4>Téléphone</h4>
+          <p><a href="tel:+33140000000" rel="noopener">+33 1 40 00 00 00</a></p>
+        </div>
+
+        <div class="info-block">
+          <h4>Horaires</h4>
+          <p>Lun – Ven, 9h – 18h</p>
+        </div>
+
+        <div class="info-block">
+          <h4>Nous suivre</h4>
+          <div class="social-icons">
+            <a href="https://linkedin.com/company/novatech" target="_blank" rel="noopener noreferrer" title="LinkedIn">in</a>
+            <a href="https://twitter.com/novatech" target="_blank" rel="noopener noreferrer" title="Twitter">𝕏</a>
+            <a href="https://github.com/novatech" target="_blank" rel="noopener noreferrer" title="GitHub">gh</a>
+            <a href="https://dribbble.com/novatech" target="_blank" rel="noopener noreferrer" title="Dribbble">dr</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <form id="contactForm" class="contact-form" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="c-nom">Nom <span class="req">*</span></label>
+            <input type="text" id="c-nom" name="nom" placeholder="Moreau" required autocomplete="family-name" />
+          </div>
+          <div class="field">
+            <label for="c-prenom">Prénom <span class="req">*</span></label>
+            <input type="text" id="c-prenom" name="prenom" placeholder="Alexandre" required autocomplete="given-name" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="c-email">Email professionnel <span class="req">*</span></label>
+          <input type="email" id="c-email" name="email" placeholder="vous@entreprise.fr" required autocomplete="email" />
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="c-tel">Téléphone</label>
+            <input type="tel" id="c-tel" name="telephone" placeholder="06 12 34 56 78"
+              pattern="^(?:(?:\+|00)33|0)\s?[1-9](?:[\s.-]?\d{2}){4}$"
+              autocomplete="tel" />
+          </div>
+          <div class="field">
+            <label for="c-site">Site web actuel</label>
+            <input type="url" id="c-site" name="site" placeholder="https://mon-site.fr" autocomplete="url" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="c-service">Service souhaité <span class="req">*</span></label>
+          <select id="c-service" name="service" required>
+            <option value="" disabled selected>Choisissez un service…</option>
+            <option value="design">Design UI/UX</option>
+            <option value="dev">Développement web</option>
+            <option value="seo">SEO & Stratégie digitale</option>
+            <option value="maintenance">Maintenance</option>
+            <option value="complet">Projet complet</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="c-budget">Budget estimé : <span id="budget-label" class="budget-display">5 000 €</span></label>
+          <input type="range" id="c-budget" name="budget"
+            min="500" max="50000" step="500" value="5000" />
+          <div class="range-labels">
+            <span>500 €</span>
+            <span>50 000 €</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="c-delai">Délai souhaité</label>
+          <select id="c-delai" name="delai" autocomplete="off">
+            <option value="" disabled selected>Sélectionnez…</option>
+            <option value="urgent">Urgent (moins d'1 mois)</option>
+            <option value="1-3">1 à 3 mois</option>
+            <option value="3-6">3 à 6 mois</option>
+            <option value="flexible">Flexible / À définir</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="c-message">Décrivez votre projet <span class="req">*</span></label>
+          <textarea id="c-message" name="message"
+            placeholder="Parlez-nous de votre projet, vos objectifs, votre cible…"
+            required minlength="20" maxlength="2000"></textarea>
+        </div>
+
+        <label class="checkbox-label">
+          <input type="checkbox" name="newsletter" value="1" />
+          Je souhaite recevoir la newsletter NovaTech (conseils, actus, tendances)
+        </label>
+
+        <label class="checkbox-label" style="margin-bottom: 0.5rem;">
+          <input type="checkbox" name="rgpd" required />
+          J'accepte que mes données soient utilisées pour répondre à ma demande conformément à la
+          <a href="#confidentialite" rel="noopener" style="color:var(--accent)">politique de confidentialité</a>. <span class="req">*</span>
+        </label>
+
+        <button type="submit">Envoyer ma demande →</button>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CARTE ── -->
+<section class="map-section">
+  <div class="container">
+    <p class="section-label">Nous trouver</p>
+    <h2>Notre agence</h2>
+    <div class="map-wrap">
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=2.3432%2C48.8500%2C2.3632%2C48.8600&layer=mapnik&marker=48.855%2C2.353"
+        title="Carte localisation NovaTech — 42 rue du Faubourg Saint-Antoine, Paris"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Nova<span>Tech</span></div>
+      <p>Agence web créative basée à Paris. On construit des expériences numériques qui font la différence depuis 2017.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="about.html">Équipe</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Galerie</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html#design">Design UI/UX</a></li>
+        <li><a href="services.html#dev">Développement</a></li>
+        <li><a href="services.html#strategie">SEO & Analytics</a></li>
+        <li><a href="services.html#maintenance">Maintenance</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:hello@novatech.fr" rel="noopener">hello@novatech.fr</a></li>
+        <li><a href="tel:+33140000000" rel="noopener">+33 1 40 00 00 00</a></li>
+        <li><a href="https://linkedin.com/company/novatech" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/novatech" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 NovaTech SAS. Tous droits réservés.</span>
+    <div class="footer-legal">
+      <a href="#mentions-legales" rel="noopener">Mentions légales</a>
+      <a href="#confidentialite" rel="noopener">Confidentialité</a>
+      <a href="#cookies" rel="noopener">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const budgetRange = document.getElementById('c-budget');
+  const budgetLabel = document.getElementById('budget-label');
+  budgetRange.addEventListener('input', () => {
+    budgetLabel.textContent = parseInt(budgetRange.value).toLocaleString('fr-FR') + ' €';
+  });
+
+  document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!e.target.checkValidity()) { e.target.reportValidity(); return; }
+    alert('✅ Message envoyé ! Nous vous répondrons sous 24h.');
+  });
+</script>
+
+</body>
+</html>

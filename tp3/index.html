@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NovaTech — Agence Web & Digital</title>
+  <meta name="description" content="NovaTech est une agence web créative spécialisée en développement, design et stratégie digitale." />
+  <!-- Open Graph / SEO -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="NovaTech — Agence Web & Digital" />
+  <meta property="og:description" content="Nous créons des expériences numériques qui font la différence." />
+  <meta property="og:image" content="https://placehold.co/1200x630/FF4D00/FFFFFF?text=NovaTech" />
+  <meta property="og:url" content="https://novatech.fr" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── HERO ── */
+    .hero {
+      min-height: calc(100vh - 68px);
+      display: flex;
+      align-items: center;
+      background: var(--ink);
+      color: var(--white);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(255,77,0,0.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title .highlight { color: var(--accent); }
+
+    .hero-subtitle {
+      color: rgba(255,255,255,0.55);
+      font-size: 1.1rem;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .hero-image {
+      aspect-ratio: 4/3;
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .hero-image picture,
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-image .placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.3);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.45); }
+
+    /* ── SERVICES PREVIEW ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      padding: 2rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .service-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+    .service-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 { margin-bottom: 0.5rem; }
+    .service-card p { font-size: 0.875rem; }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    /* ── VIDEO SECTION ── */
+    .video-section { background: var(--surface); }
+
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 2rem;
+      background: var(--ink);
+    }
+
+    .video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.9rem;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    blockquote.testimonial {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem;
+    }
+
+    .quote-text {
+      font-size: 0.95rem;
+      color: var(--ink);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 1.25rem;
+    }
+
+    .quote-author { display: flex; align-items: center; gap: 0.75rem; }
+
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .author-name { font-weight: 500; font-size: 0.875rem; color: var(--ink); }
+    .author-role { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: var(--accent);
+      padding: 4rem 0;
+    }
+
+    .cta-band .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-band h2 { color: var(--white); }
+    .cta-band p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; }
+
+    .btn-white { background: var(--white); color: var(--accent); }
+    .btn-white:hover { background: var(--ink); color: var(--white); }
+
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-image { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">Nova<span>Tech</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Accueil</a></li>
+    <li><a href="about.html">Équipe</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="gallery.html">Galerie</a></li>
+    <li><a href="contact.html" class="nav-cta">Nous contacter</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="container" style="width:100%">
+    <div class="hero-inner">
+      <div>
+        <p class="section-label">Agence créative</p>
+        <h1 class="hero-title">
+          On construit<br>
+          le web de<br>
+          <span class="highlight">demain.</span>
+        </h1>
+        <p class="hero-subtitle">Design, développement et stratégie digitale<br>pour les entreprises qui veulent se démarquer.</p>
+        <div class="hero-actions">
+          <a href="services.html" class="btn btn-accent">Voir nos services</a>
+          <a href="about.html" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.25)">L'équipe →</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-num">120+</div>
+            <div class="stat-label">Projets livrés</div>
+          </div>
+          <div>
+            <div class="stat-num">98%</div>
+            <div class="stat-label">Clients satisfaits</div>
+          </div>
+          <div>
+            <div class="stat-num">8</div>
+            <div class="stat-label">Années d'expérience</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <picture>
+          <source
+            srcset="https://placehold.co/800x600/1a1a1a/FF4D00?text=NovaTech 800w,
+                    https://placehold.co/400x300/1a1a1a/FF4D00?text=NovaTech 400w"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+          <img
+            src="https://placehold.co/800x600/1a1a1a/FF4D00?text=NovaTech"
+            alt="Interface d'une application web développée par NovaTech"
+            width="800"
+            height="600"
+          />
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="section">
+  <div class="container">
+    <p class="section-label">Ce que nous faisons</p>
+    <h2>Nos expertises</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Design UI/UX</h3>
+        <p>Interfaces intuitives et mémorables, centrées sur l'expérience utilisateur.</p>
+        <a href="services.html#design" class="service-link">En savoir plus →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💻</div>
+        <h3>Développement Web</h3>
+        <p>Sites, applications et plateformes web performants et accessibles.</p>
+        <a href="services.html#dev" class="service-link">En savoir plus →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <h3>Stratégie Digitale</h3>
+        <p>SEO, performance, analytics : on optimise votre présence en ligne.</p>
+        <a href="services.html#strategie" class="service-link">En savoir plus →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VIDEO ── -->
+<section class="section video-section">
+  <div class="container">
+    <p class="section-label">NovaTech en action</p>
+    <h2>Découvrez notre façon<br>de travailler</h2>
+    <div class="video-wrap">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        width="1280"
+        height="720"
+        poster="https://placehold.co/1280x720/0D0D0D/FF4D00?text=NovaTech+Studio"
+      >
+        <source src="video/showreel.mp4" type="video/mp4" />
+        <source src="video/showreel.webm" type="video/webm" />
+        Votre navigateur ne prend pas en charge la lecture vidéo.
+      </video>
+      <div class="video-fallback">
+        <img
+          src="https://placehold.co/1280x720/0D0D0D/FF4D00?text=NovaTech+Studio"
+          alt="Aperçu du showreel NovaTech"
+          width="1280"
+          height="720"
+          style="width:100%;height:100%;object-fit:cover;"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TÉMOIGNAGES ── -->
+<section class="section">
+  <div class="container">
+    <p class="section-label">Ils nous font confiance</p>
+    <h2>Ce que disent nos clients</h2>
+    <div class="testimonials-grid">
+      <blockquote class="testimonial">
+        <p class="quote-text">"NovaTech a transformé notre site en une véritable machine à convertir. Résultat : +45% de leads en 3 mois."</p>
+        <div class="quote-author">
+          <div class="author-avatar">SL</div>
+          <div>
+            <div class="author-name">Sophie Laurent</div>
+            <div class="author-role">CEO, GreenBox SAS</div>
+          </div>
+        </div>
+      </blockquote>
+      <blockquote class="testimonial">
+        <p class="quote-text">"Une équipe réactive, créative et professionnelle. La refonte de notre identité digitale est un succès total."</p>
+        <div class="quote-author">
+          <div class="author-avatar">TM</div>
+          <div>
+            <div class="author-name">Thomas Marchand</div>
+            <div class="author-role">Directeur, Studio Bravo</div>
+          </div>
+        </div>
+      </blockquote>
+      <blockquote class="testimonial">
+        <p class="quote-text">"Livrés en avance, dans le budget, sans compromis sur la qualité. Je recommande les yeux fermés."</p>
+        <div class="quote-author">
+          <div class="author-avatar">EK</div>
+          <div>
+            <div class="author-name">Emma Kowalski</div>
+            <div class="author-role">Fondatrice, Bloom App</div>
+          </div>
+        </div>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-band">
+  <div class="container">
+    <div>
+      <h2>Votre prochain projet commence ici.</h2>
+      <p>Parlons de vos ambitions digitales.</p>
+    </div>
+    <a href="contact.html" class="btn btn-white">Démarrer un projet →</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Nova<span>Tech</span></div>
+      <p>Agence web créative basée à Paris. On construit des expériences numériques qui font la différence depuis 2017.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="about.html">Équipe</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Galerie</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html#design">Design UI/UX</a></li>
+        <li><a href="services.html#dev">Développement</a></li>
+        <li><a href="services.html#strategie">SEO & Analytics</a></li>
+        <li><a href="services.html#maintenance">Maintenance</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:hello@novatech.fr" rel="noopener">hello@novatech.fr</a></li>
+        <li><a href="tel:+33140000000" rel="noopener">+33 1 40 00 00 00</a></li>
+        <li><a href="https://linkedin.com/company/novatech" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/novatech" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 NovaTech SAS. Tous droits réservés.</span>
+    <div class="footer-legal">
+      <a href="#mentions-legales" rel="noopener">Mentions légales</a>
+      <a href="#confidentialite" rel="noopener">Confidentialité</a>
+      <a href="#cookies" rel="noopener">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L'équipe — NovaTech</title>
+  <meta name="description" content="Découvrez l'équipe passionnée de NovaTech, agence web créative basée à Paris." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="L'équipe — NovaTech" />
+  <meta property="og:description" content="Des experts passionnés au service de votre digital." />
+  <meta property="og:image" content="https://placehold.co/1200x630/0052FF/FFFFFF?text=Équipe+NovaTech" />
+  <meta property="og:url" content="https://novatech.fr/about.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .about-hero {
+      background: var(--surface);
+      padding: 5rem 0 3rem;
+    }
+
+    .about-hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+
+    .about-hero p { font-size: 1.1rem; max-width: 600px; margin-top: 1rem; }
+
+    /* ── TEAM GRID ── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .member-figure {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .member-photo {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      border-radius: 8px;
+      background: var(--surface);
+      margin-bottom: 1rem;
+    }
+
+    .member-photo picture,
+    .member-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .member-figure:hover .member-photo img { transform: scale(1.04); }
+
+    figcaption h3 { margin-bottom: 0.2rem; }
+    figcaption h5 { margin-bottom: 0.5rem; }
+    figcaption p { font-size: 0.875rem; line-height: 1.6; }
+
+    .member-social { display: flex; gap: 0.75rem; margin-top: 0.75rem; }
+
+    .member-social a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .member-social a:hover { border-color: var(--accent); background: rgba(255,77,0,0.05); }
+
+    /* ── VALUES ── */
+    .values-section { background: var(--ink); color: var(--white); }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .value-item { padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; }
+    .value-item h3 { color: var(--white); margin-bottom: 0.5rem; }
+    .value-item p { font-size: 0.875rem; color: rgba(255,255,255,0.5); }
+    .value-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--accent); margin-bottom: 0.75rem; }
+
+    @media (max-width: 768px) {
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .team-grid { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">Nova<span>Tech</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="about.html" class="active">Équipe</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="gallery.html">Galerie</a></li>
+    <li><a href="contact.html" class="nav-cta">Nous contacter</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="about-hero">
+  <div class="container">
+    <p class="section-label">Qui sommes-nous</p>
+    <h1>Des humains<br>derrière le code.</h1>
+    <p>Une équipe de passionnés unie par l'ambition de créer des expériences numériques qui marquent les esprits.</p>
+  </div>
+</section>
+
+<!-- ── TEAM ── -->
+<section class="section">
+  <div class="container">
+    <p class="section-label">Notre équipe</p>
+    <h2>Les visages de NovaTech</h2>
+    <div class="team-grid">
+
+      <figure class="member-figure">
+        <div class="member-photo">
+          <picture>
+            <source
+              srcset="https://placehold.co/400x533/FF4D00/FFFFFF?text=CEO 400w,
+                      https://placehold.co/200x267/FF4D00/FFFFFF?text=CEO 200w"
+              sizes="(max-width: 480px) 100vw, 33vw"
+            />
+            <img
+              src="https://placehold.co/400x533/FF4D00/FFFFFF?text=CEO"
+              alt="Portrait de Claire Fontaine, CEO et co-fondatrice de NovaTech"
+              width="400"
+              height="533"
+            />
+          </picture>
+        </div>
+        <figcaption>
+          <h3>Claire Fontaine</h3>
+          <h5>CEO & Co-fondatrice</h5>
+          <p>Stratège digitale avec 12 ans d'expérience dans la transformation numérique des entreprises.</p>
+          <div class="member-social">
+            <a href="https://linkedin.com/in/claire-fontaine" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://twitter.com/claire_nova" target="_blank" rel="noopener noreferrer">Twitter</a>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="member-figure">
+        <div class="member-photo">
+          <picture>
+            <source
+              srcset="https://placehold.co/400x533/0052FF/FFFFFF?text=CTO 400w,
+                      https://placehold.co/200x267/0052FF/FFFFFF?text=CTO 200w"
+              sizes="(max-width: 480px) 100vw, 33vw"
+            />
+            <img
+              src="https://placehold.co/400x533/0052FF/FFFFFF?text=CTO"
+              alt="Portrait de Marc Dubois, CTO et co-fondateur de NovaTech"
+              width="400"
+              height="533"
+            />
+          </picture>
+        </div>
+        <figcaption>
+          <h3>Marc Dubois</h3>
+          <h5>CTO & Co-fondateur</h5>
+          <p>Développeur full-stack passionné par les architectures modernes et la performance web.</p>
+          <div class="member-social">
+            <a href="https://linkedin.com/in/marc-dubois" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/marcdubois" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="member-figure">
+        <div class="member-photo">
+          <picture>
+            <source
+              srcset="https://placehold.co/400x533/1A1A1A/FF4D00?text=Design 400w,
+                      https://placehold.co/200x267/1A1A1A/FF4D00?text=Design 200w"
+              sizes="(max-width: 480px) 100vw, 33vw"
+            />
+            <img
+              src="https://placehold.co/400x533/1A1A1A/FF4D00?text=Design"
+              alt="Portrait de Léa Perrin, directrice artistique chez NovaTech"
+              width="400"
+              height="533"
+            />
+          </picture>
+        </div>
+        <figcaption>
+          <h3>Léa Perrin</h3>
+          <h5>Directrice Artistique</h5>
+          <p>Designer UI/UX spécialisée en design systems et expérience mobile.</p>
+          <div class="member-social">
+            <a href="https://linkedin.com/in/lea-perrin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://dribbble.com/leaperrin" target="_blank" rel="noopener noreferrer">Dribbble</a>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="member-figure">
+        <div class="member-photo">
+          <picture>
+            <source
+              srcset="https://placehold.co/400x533/555/FFFFFF?text=Dev 400w,
+                      https://placehold.co/200x267/555/FFFFFF?text=Dev 200w"
+              sizes="(max-width: 480px) 100vw, 33vw"
+            />
+            <img
+              src="https://placehold.co/400x533/555/FFFFFF?text=Dev"
+              alt="Portrait de Nathan Kouba, développeur frontend chez NovaTech"
+              width="400"
+              height="533"
+            />
+          </picture>
+        </div>
+        <figcaption>
+          <h3>Nathan Kouba</h3>
+          <h5>Développeur Frontend</h5>
+          <p>Spécialiste React et accessibilité web, contributeur open source.</p>
+          <div class="member-social">
+            <a href="https://github.com/nathankouba" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="member-figure">
+        <div class="member-photo">
+          <picture>
+            <source
+              srcset="https://placehold.co/400x533/C8A96E/FFFFFF?text=SEO 400w,
+                      https://placehold.co/200x267/C8A96E/FFFFFF?text=SEO 200w"
+              sizes="(max-width: 480px) 100vw, 33vw"
+            />
+            <img
+              src="https://placehold.co/400x533/C8A96E/FFFFFF?text=SEO"
+              alt="Portrait de Inès Belkacem, experte SEO chez NovaTech"
+              width="400"
+              height="533"
+            />
+          </picture>
+        </div>
+        <figcaption>
+          <h3>Inès Belkacem</h3>
+          <h5>Experte SEO & Growth</h5>
+          <p>Stratégies d'acquisition organique et analyse de données pour booster votre visibilité.</p>
+          <div class="member-social">
+            <a href="https://linkedin.com/in/ines-belkacem" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="member-figure">
+        <div class="member-photo">
+          <picture>
+            <source
+              srcset="https://placehold.co/400x533/4CAF50/FFFFFF?text=PM 400w,
+                      https://placehold.co/200x267/4CAF50/FFFFFF?text=PM 200w"
+              sizes="(max-width: 480px) 100vw, 33vw"
+            />
+            <img
+              src="https://placehold.co/400x533/4CAF50/FFFFFF?text=PM"
+              alt="Portrait de Lucas Tran, chef de projets chez NovaTech"
+              width="400"
+              height="533"
+            />
+          </picture>
+        </div>
+        <figcaption>
+          <h3>Lucas Tran</h3>
+          <h5>Chef de Projets</h5>
+          <p>Garant de la relation client et du bon déroulement de chaque mission, de A à Z.</p>
+          <div class="member-social">
+            <a href="https://linkedin.com/in/lucas-tran" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── VALEURS ── -->
+<section class="section values-section">
+  <div class="container">
+    <p class="section-label">Ce qui nous guide</p>
+    <h2 style="color:var(--white)">Nos valeurs</h2>
+    <div class="values-grid">
+      <div class="value-item">
+        <div class="value-num">01</div>
+        <h3>Qualité</h3>
+        <p>Nous ne livrons que ce qui nous rend fiers. Chaque pixel, chaque ligne de code compte.</p>
+      </div>
+      <div class="value-item">
+        <div class="value-num">02</div>
+        <h3>Transparence</h3>
+        <p>Communication ouverte, prix clairs, aucune surprise. Vous savez toujours où en est votre projet.</p>
+      </div>
+      <div class="value-item">
+        <div class="value-num">03</div>
+        <h3>Innovation</h3>
+        <p>On veille constamment sur les tendances et les nouvelles technologies pour vous garder en avance.</p>
+      </div>
+      <div class="value-item">
+        <div class="value-num">04</div>
+        <h3>Impact</h3>
+        <p>Chaque projet doit produire des résultats mesurables. On travaille avec des objectifs concrets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Nova<span>Tech</span></div>
+      <p>Agence web créative basée à Paris. On construit des expériences numériques qui font la différence depuis 2017.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="about.html">Équipe</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Galerie</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html#design">Design UI/UX</a></li>
+        <li><a href="services.html#dev">Développement</a></li>
+        <li><a href="services.html#strategie">SEO & Analytics</a></li>
+        <li><a href="services.html#maintenance">Maintenance</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:hello@novatech.fr" rel="noopener">hello@novatech.fr</a></li>
+        <li><a href="tel:+33140000000" rel="noopener">+33 1 40 00 00 00</a></li>
+        <li><a href="https://linkedin.com/company/novatech" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/novatech" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 NovaTech SAS. Tous droits réservés.</span>
+    <div class="footer-legal">
+      <a href="#mentions-legales" rel="noopener">Mentions légales</a>
+      <a href="#confidentialite" rel="noopener">Confidentialité</a>
+      <a href="#cookies" rel="noopener">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
